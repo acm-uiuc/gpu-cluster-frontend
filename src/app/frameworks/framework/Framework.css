@@ -1,0 +1,49 @@
+.Framework {
+    border: 0px;
+    border-bottom: 3px;
+    border-color: #333333;
+    background-color: #fff;
+    height: 25vw;
+    width: 25vw;
+    max-height: 400px;
+    max-width: 400px;
+    font-size:4.5vw;
+    color: #fff;
+    font-size-adjust:auto;
+    border-style: solid;
+}
+
+.Framework > .label {
+    display: none;
+    width: 25vw;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-left: -0.3vw;
+} 
+
+.Framework > .label > .name {
+    color: #333333;
+    display:block;
+    font-size: 0.5em;
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+} 
+
+.Framework > .label > .details {
+    color: #333333;
+    font-size: 0.15em;
+    display:block;
+    font-family: "Open Sans", sans-serif;
+    text-align:center
+} 
+
+.Framework:hover > .label {
+    display: block;
+} 
+
+.logo {
+    height: 15vw;
+    width: 15vw;
+    max-height: 200px;
+    max-width: 200px;
+}
