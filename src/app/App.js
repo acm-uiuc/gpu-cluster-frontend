@@ -55,7 +55,14 @@ class App extends Component {
     }
     
     click(f) {
-        //RETURN THE SELECTION TO SERVER 
+	fetch('https://gpu-cluster-backend:5656/create_container/', {
+	    method: 'POST',
+	    headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json',
+	    },
+	    body: f
+	})
         console.log(f)
     }
     
