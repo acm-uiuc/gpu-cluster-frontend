@@ -24,7 +24,7 @@ class App extends Component {
                   name:'PyTorch',
                   details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
                   img: "http://pytorch.org/static/img/pytorch-logo-dark.svg",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:pytorch"
+                  image: "acm-uiuc/pytorch"
               },
               {
                   name:'Keras',
@@ -53,15 +53,16 @@ class App extends Component {
         };
         this.click = this.click.bind(this);
     }
-    
+
+        
     click(f) {
-	fetch('https://gpu-cluster-backend:5656/create_container/', {
+	fetch('http://vault.acm.illinois.edu:5656/create_container', {
 	    method: 'POST',
 	    headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json',
 	    },
-	    body: f
+	    body: JSON.stringify(f)
 	})
         console.log(f)
     }
