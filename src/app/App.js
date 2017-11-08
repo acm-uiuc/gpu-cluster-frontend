@@ -12,7 +12,7 @@ class App extends Component {
                   name:'TensorFlow',
                   details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
                   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/115px-Tensorflow_logo.svg.png",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:tensorflow"
+                  image: "acmuiuc/tensorflow"
               },
               {
                   name:'Caffe2',
@@ -24,13 +24,13 @@ class App extends Component {
                   name:'PyTorch',
                   details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
                   img: "http://pytorch.org/static/img/pytorch-logo-dark.svg",
-                  image: "acm-uiuc/pytorch"
+                  image: "acmuiuc/pytorch"
               },
               {
                   name:'Keras',
                   details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
                   img: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Keras_Logo.jpg",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:keras"
+                  image: "acmuiuc/keras"
               },
               {
                   name:'NVIDIA Digits',
