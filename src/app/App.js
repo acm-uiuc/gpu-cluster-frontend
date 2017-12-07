@@ -63,7 +63,9 @@ class App extends Component {
 		'Content-Type': 'application/json',
 	    },
 	    body: JSON.stringify(f)
-	})
+	}).then((resp) => resp.json()).then(function(res){
+	    window.location.replace(res['jupyter_url']); 
+	});
         console.log(f)
     }
     
