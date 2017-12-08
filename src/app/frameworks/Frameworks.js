@@ -4,7 +4,7 @@ import Framework from './framework/Framework.js'
 
 class Grid extends Component {
     renderFramework(f, t, cl) {
-        return <Framework framework={f} onClickHandler={this.props.handler}/>
+        return <Framework disabled={this.props.disabled} framework={f} onClickHandler={this.props.handler}/>
     }
 
     render() {
