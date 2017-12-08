@@ -71,7 +71,7 @@ class App extends Component {
     }
         
     click(f) {
-	var updatedFramework = this.state.framework;
+	var updatedFramework = this.state.frameworks
 	var type = typeof updatedFramework;
 	console.log(type);
 	var index = updatedFramework.indexOf(f);
@@ -96,7 +96,7 @@ class App extends Component {
 	return (
               <div className="GPU-CLUSTER-FRONTEND">
                   <Nav/> 
-                <Frameworks disabled={this.state.disableButton} frameworks={this.state.frameworks} handler={this.click} loadingGif={this.loadingGif}/>
+                <Frameworks disabled={this.state.disableAllButton} frameworks={this.state.frameworks} handler={this.click} loadingGif={this.loadingGif}/>
               </div>
         );
     }
