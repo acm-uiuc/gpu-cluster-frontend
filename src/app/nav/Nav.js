@@ -60,7 +60,7 @@ class Nav extends Component {
                             <li>IMAGENET2017-CLS</li>
                             <li>NYU-DEPTH-V2</li>
                         </ul>
-                        <p> If you intend to use a common dataset not on this list, instead of downloading into your workspace, place it in /vault/data </p>
+                        <p> If you would like to see another common dataset, file an issue here: <a href="https://github.com/acm-uiuc/gpu-cluster">https://github.com/acm-uiuc/gpu-cluster</a> </p>
                     </div>
                 </div>
             </div>
