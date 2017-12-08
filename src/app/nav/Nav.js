@@ -59,6 +59,7 @@ class Nav extends Component {
                             <li>IMAGNET2017-DEC</li>
                             <li>IMAGENET2017-CLS</li>
                             <li>NYU-DEPTH-V2</li>
+                            <li>COCO2017</li>
                         </ul>
                         <p> If you would like to see another common dataset, file an issue here: <a href="https://github.com/acm-uiuc/gpu-cluster">https://github.com/acm-uiuc/gpu-cluster</a> </p>
                     </div>
