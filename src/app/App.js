@@ -6,40 +6,42 @@ import './App.css';
 
 class App extends Component {
     constructor(props) {
-		super(props);
-		
-		console.log(this.props.frameworkImages);
-
+		    super(props);
         this.state = {frameworks: this.props.frameworkImages,
-					  disableButton: false};
-
+				    	        disableAllButton: false};
+        this.loadingGif = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif";
         this.click = this.click.bind(this);
     }
-
         
     click(f) {
-	this.setState({framework:this.state.framework, disableButton:true})
-	fetch('http://vault.acm.illinois.edu:5656/create_container', {
-	    method: 'POST',
-	    headers: {
-		'Accept': 'application/json',
-		'Content-Type': 'application/json',
-	    },
-	    body: JSON.stringify(f)
-	}).then((resp) => resp.json()).then(function(res){
-	    window.location.replace(res['jupyter_url']); 
-	});
-        console.log(f)
+        var updatedFramework = this.state.frameworks
+        var type = typeof updatedFramework;
+        console.log(type);
+        var index = updatedFramework.indexOf(f);
+        updatedFramework[index].loading = true;
+        this.setState({framework:updatedFramework, disableAllButton:true})
+
+        fetch('http://vault.acm.illinois.edu:5656/create_container', {
+                  method: 'POST',
+                  headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(f)
+          }).then((resp) => resp.json()).then(function(res){
+	            window.location.replace(res['jupyter_url']); 
+	        });
+          console.log(f)
     }
     
     render() {
-	console.log(this.state.disableButton);
-	return (
+	      console.log(this.state.disableAllButton);
+	      return (
             <div className="GPU-CLUSTER-FRONTEND">
                 <Nav/> 
-                <Frameworks disabled={this.state.disableButton} frameworks={this.state.frameworks} handler={this.click} />
-				<Footer/>
-			</div>
+                <Frameworks disabled={this.state.disableButton} frameworks={this.state.frameworks} handler={this.click} loadingGif={this.loadingGif} />
+				        <Footer/>
+			      </div>
         );
     }
 }
