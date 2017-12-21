@@ -9,8 +9,9 @@ class App extends Component {
 		    super(props);
         this.state = {frameworks: this.props.frameworkImages,
 				    	        disableAllButton: false};
-        this.loadingGif = "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif";
-        this.click = this.click.bind(this);
+
+	this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
+	this.click = this.click.bind(this);
     }
         
     click(f) {
