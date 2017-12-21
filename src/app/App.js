@@ -1,70 +1,48 @@
 import React, { Component } from 'react';
-import Frameworks from './frameworks/Frameworks.js'
-import Nav from './nav/Nav.js'
+import Frameworks from './frameworks/Frameworks.js';
+import Nav from './nav/Nav.js';
+import Footer from './footer/Footer.js';
 import './App.css';
 
 class App extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+		    super(props);
+        this.state = {frameworks: this.props.frameworkImages,
+				    	        disableAllButton: false};
 
-        this.state = {frameworks: 
-            [{
-                  name:'TensorFlow',
-                  details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/115px-Tensorflow_logo.svg.png",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:tensorflow"
-              },
-              {
-                  name:'Caffe2',
-                  details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
-                  img: "https://caffe2.ai/static/logo.svg",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:caffe2"
-              },
-              {
-                  name:'PyTorch',
-                  details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
-                  img: "http://pytorch.org/static/img/pytorch-logo-dark.svg",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:pytorch"
-              },
-              {
-                  name:'Keras',
-                  details: "Ubuntu 16.04 - Python 3.5 - Jupyter Notebook",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Keras_Logo.jpg",
-                  image: "registry.gitlab.com/acm-uiuc/gpu-cluster-images:keras"
-              },
-              {
-                  name:'NVIDIA Digits',
-                  details: "Ubuntu 16.04 - In Browser GUI",
-                  img: "https://www.scan.co.uk/images/3xs/infopages/nvidia-digits.png",
-                  image: "nvidia/digits"
-              },
-              {
-                  name:'Caffe',
-                  details: "Ubuntu 16.04 - C++ - SSH",
-                  img: "http://antmicro.com/images/logos/products-tk-caffe.svg",
-                  image: "nvidia/caffe"
-              },
-              {
-                  name:'Dockerfile',
-                  details: null,
-                  img: "https://cdn.worldvectorlogo.com/logos/docker.svg",
-                  image: null
-              }]
-        };
-        this.click = this.click.bind(this);
+	this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
+	this.click = this.click.bind(this);
     }
-    
+        
     click(f) {
-        //RETURN THE SELECTION TO SERVER 
-        console.log(f)
+        var updatedFramework = this.state.frameworks
+        var type = typeof updatedFramework;
+        console.log(type);
+        var index = updatedFramework.indexOf(f);
+        updatedFramework[index].loading = true;
+        this.setState({framework:updatedFramework, disableAllButton:true})
+
+        fetch('http://vault.acm.illinois.edu:5656/create_container', {
+                  method: 'POST',
+                  headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(f)
+          }).then((resp) => resp.json()).then(function(res){
+	            window.location.replace(res['jupyter_url']); 
+	        });
+          console.log(f)
     }
     
     render() {
-        return (
-              <div className="GPU-CLUSTER-FRONTEND">
-                  <Nav/> 
-                  <Frameworks frameworks={this.state.frameworks} handler={this.click}/>
-              </div>
+	      console.log(this.state.disableAllButton);
+	      return (
+            <div className="GPU-CLUSTER-FRONTEND">
+                <Nav/> 
+                <Frameworks disabled={this.state.disableButton} frameworks={this.state.frameworks} handler={this.click} loadingGif={this.loadingGif} />
+				        <Footer/>
+			      </div>
         );
     }
 }
