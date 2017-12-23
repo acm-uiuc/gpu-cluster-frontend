@@ -39,7 +39,6 @@ class Nav extends Component {
                         <h4> Rules</h4>
                         <ul>
                             <li>  Store all data in your vault workspace (/vault/[username]) as this will be the only persistant storage on the system </li> 
-                            <li>  We can only support two concurrent GPU users, look above to see if there is a free GPU otherwise comeback later </li>
                             <li>  Don't hog time on the cluster </li>
                         </ul>
                         <h4> System Specs </h4>
@@ -48,7 +47,7 @@ class Nav extends Component {
                             <li> 16 GB of RAM </li>
                             <li> 120 GB of SSD Storage </li>
                             <li> 16 TB of RAID0 HDD Storage </li>
-                            <li> GTX 980 Graphics Card </li>
+                            <li> GTX 1070 Ti Graphics Card </li>
                             <li> GTX 1070 Graphics Card </li>
                         </ul>
                         <h4> Common Datasets Available</h4>
