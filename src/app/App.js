@@ -6,12 +6,12 @@ import './App.css';
 
 class App extends Component {
     constructor(props) {
-		    super(props);
+	super(props);
         this.state = {frameworks: this.props.frameworkImages,
-				    	        disableAllButton: false};
-
+                      disableAllButton: false};
 	this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
 	this.click = this.click.bind(this);
+	this.api = window.location.protocol+"//"+window.location.href.split('/')[2]
     }
         
     click(f) {
@@ -22,7 +22,7 @@ class App extends Component {
         updatedFramework[index].loading = true;
         this.setState({framework:updatedFramework, disableAllButton:true})
 
-        fetch('http://vault.acm.illinois.edu:5656/create_container', {
+        fetch(this.api + '/create_container', {
                   method: 'POST',
                   headers: {
                 'Accept': 'application/json',
