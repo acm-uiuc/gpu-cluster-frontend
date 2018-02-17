@@ -30,7 +30,7 @@ class App extends Component {
               },
               body: JSON.stringify(f)
           }).then((resp) => resp.json()).then(function(res){
-	            window.location.replace(res['jupyter_url']); 
+	            window.location.replace(res['ui_url']); 
 	        });
           console.log(f)
     }
