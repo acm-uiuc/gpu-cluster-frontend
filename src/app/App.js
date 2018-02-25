@@ -30,8 +30,7 @@ class App extends Component {
               },
               body: JSON.stringify(f)
           }).then((resp) => resp.json()).then(function(res){
-                var log_cluster = browser.history.addUrl({url: window.location, title: "ACM@UIUC - GPU Cluster"})
-                log_cluster.then(window.location.replace(res['ui_url'])); 
+                window.location = res['ui_url']; 
 	        });
           console.log(f)
     }
