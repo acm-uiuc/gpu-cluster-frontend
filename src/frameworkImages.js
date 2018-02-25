@@ -27,7 +27,7 @@ var FrameworkImages =
   name:'NVIDIA Digits',
   details: "Ubuntu 16.04 - In Browser GUI",
   img: "https://www.scan.co.uk/images/3xs/infopages/nvidia-digits.png",
-  image: "acmuiuc/digits"
+  image: "acmuiuc/digits:latest"
 },{
   name:'Caffe',
   details: "Ubuntu 16.04 - C++ - SSH",
