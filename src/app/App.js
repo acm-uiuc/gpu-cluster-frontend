@@ -31,7 +31,7 @@ class App extends Component {
                 },
                 body: JSON.stringify(f)
             }).then((resp) => resp.json()).then(function(res) {
-                selected = this.state.framework_selection;
+                var selected = this.state.framework_selection;
                 selected[i] = true;
                 this.setState({framework_selection: selected, ui_url: res['ui_url']}); 
                 console.log("container is ready");
