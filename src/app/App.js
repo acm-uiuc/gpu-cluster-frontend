@@ -12,7 +12,8 @@ class App extends Component {
                           selects: Array.apply(null, Array(this.props.frameworkImages.length)).map(Number.prototype.valueOf,0),
                           ui_url: null};
         this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
-        this.click = this.click.bind(this);
+        this.select = this.select.bind(this);
+        this.confirm = this.confirm.bind(this);
         this.api = window.location.protocol+"//"+window.location.href.split('/')[2];
     }
         
