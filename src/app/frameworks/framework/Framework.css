@@ -50,8 +50,8 @@
 }
 
 .confirm {
-    height: 2.5vw;
-    width: 5vw;
+    height: 75px;
+    width: 250px;
     font-size: 0.15em;
     background-color: #262626;
     border: none;
@@ -59,10 +59,32 @@
     text-align: center;
     text-decoration: none;
     font-family: "Roboto Mono", monospace;
+    margin-left:3.5vw;
+    margin-top:10vw;
 
 }
 
-.confirm > hover {
+.confirm:hover {
     background-color: #4089C9; 
     text-decoration: underline;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.confirm_box {
+    border: 0px;
+    border-bottom: 3px;
+    border-color: #333333;
+    background-color: #fff;
+    height: 24vw;
+    width: 25vw;
+    max-height: 400px;
+    max-width: 400px;
+    font-size:4.5vw;
+    color: #fff;
+    font-size-adjust:auto;
+    border-style: solid;
 }

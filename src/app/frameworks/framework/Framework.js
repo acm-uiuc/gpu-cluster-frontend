@@ -7,7 +7,10 @@ class Framework extends Component {
         if (this.props.framework.loaded) {
             console.log(this.props.framework);
             return (
-                <button className="confirm" onClick={() => this.props.onConfirmHandler(this.props.framework)}>Launch</button>
+                <div className="confirm_box">
+                    <div className="confirm_padding"></div>
+                    <button className="confirm" onClick={() => this.props.onConfirmHandler(this.props.framework)}>Launch</button>
+                </div>
             )
         } else {
             return (
