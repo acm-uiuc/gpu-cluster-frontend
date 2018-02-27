@@ -9,7 +9,7 @@ class App extends Component {
         super(props);
             this.state = {frameworks: this.props.frameworkImages,
                           disableAllButtons: false,
-                          selects: Array.apply(null, Array(this.props.frameworkImages.length)).map(Number.prototype.valueOf,0),
+                          framework_selection: Array.apply(null, Array(this.props.frameworkImages.length)).map(Number.prototype.valueOf,0),
                           ui_url: null};
         this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
         this.select = this.select.bind(this);
@@ -43,7 +43,7 @@ class App extends Component {
 	      return (
             <div className="GPU-CLUSTER-FRONTEND">
                 <Nav/> 
-                <Frameworks disabled={this.state.disableAllButtons} frameworks={this.state.frameworks} selection={this.state.selects} confirm_handler={this.confirm} select_handler={this.select} loadingGif={this.loadingGif} />
+                <Frameworks disabled={this.state.disableAllButtons} frameworks={this.state.frameworks} selected_framework={this.state.framework_selection} confirm_handler={this.confirm} select_handler={this.select} loadingGif={this.loadingGif} />
 				<Footer/>
 			</div>
         );

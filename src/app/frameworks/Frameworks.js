@@ -4,7 +4,7 @@ import Framework from './framework/Framework.js'
 
 class Grid extends Component {
     renderFramework(f, i) {
-        return <Framework disabled={this.props.disabled} framework={f} onConfirmHandler={this.props.confirm_handler} onSelectHandler={this.props.select_handler} selected={this.props.selects[i]} loadingGif={this.props.loadingGif}/>
+        return <Framework disabled={this.props.disabled} framework={f} onConfirmHandler={this.props.confirm_handler} onSelectHandler={this.props.select_handler} selected={this.props.selected_framework[i]} loadingGif={this.props.loadingGif}/>
     }
 
     render() {
