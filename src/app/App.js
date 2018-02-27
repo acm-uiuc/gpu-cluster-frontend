@@ -21,8 +21,7 @@ class App extends Component {
         var index = updatedFramework.indexOf(f);
         updatedFramework[index].loading = true;
         this.setState({framework:updatedFramework, disableAllButtons:true});
-        //TODO: CHANGE BACK
-        fetch('http://localhost:5656/dummy_create_container', {
+        fetch(this.api + '/create_container', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
