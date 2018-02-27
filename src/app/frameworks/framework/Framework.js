@@ -10,7 +10,7 @@ class Framework extends Component {
             )
         } else {
             return (
-                <button className="Framework" onClick={() => this.props.onSelectHandler(this.props.framework)} disabled={this.props.disabled || this.props.framework.disabled}>
+                <button className="Framework" onClick={() => this.props.onSelectHandler(this.props.framework, this.props.idx)} disabled={this.props.disabled || this.props.framework.disabled}>
                     <img className="logo" src={this.props.framework.loading ? this.props.loadingGif : this.props.framework.img} alt=""/>
                     <div className="label"> 
                         <span className="name">{this.props.framework.name}</span>

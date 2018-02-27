@@ -9,7 +9,7 @@ class App extends Component {
         super(props);
             this.state = {frameworks: this.props.frameworkImages,
                           disableAllButtons: false,
-                          framework_selection: Array.apply(null, Array(this.props.frameworkImages.length)).map(Number.prototype.valueOf,0),
+                          framework_selection: new Array(this.props.frameworkImages.length).fill(false),
                           ui_url: null};
         this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
         this.select = this.select.bind(this);
@@ -17,7 +17,7 @@ class App extends Component {
         this.api = window.location.protocol+"//"+window.location.href.split('/')[2];
     }
         
-    select(f) {
+    select(f, i) {
         var updatedFramework = this.state.frameworks;
         var index = updatedFramework.indexOf(f);
         updatedFramework[index].loading = true;
@@ -30,8 +30,11 @@ class App extends Component {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(f)
-            }).then((resp) => resp.json()).then(function(res){
-                this.setState({ui_url: res['ui_url']}); 
+            }).then((resp) => resp.json()).then(function(res) {
+                selected = this.state.framework_selection;
+                selected[i] = true;
+                this.setState({framework_selection: selected, ui_url: res['ui_url']}); 
+                console.log("container is ready");
             });
     }
 
