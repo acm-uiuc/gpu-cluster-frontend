@@ -3,8 +3,9 @@ import './Framework.css'
 
 class Framework extends Component {
     render() {
-	console.log(this.props.disabled);
-        if (this.props.selected) {
+	    console.log("THIS FRAMEWORK IS SELECTED" + this.props.framework.loaded);
+        if (this.props.framework.loaded) {
+            console.log(this.props.framework);
             return (
                 <button className="confirm" onClick={() => this.props.onConfirmHandler(this.props.framework)}>Launch</button>
             )
