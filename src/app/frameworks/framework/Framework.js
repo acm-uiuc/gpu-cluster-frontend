@@ -3,9 +3,7 @@ import './Framework.css'
 
 class Framework extends Component {
     render() {
-	    console.log("THIS FRAMEWORK IS SELECTED" + this.props.framework.loaded);
         if (this.props.framework.loaded) {
-            console.log(this.props.framework);
             return (
                 <div className="confirm_box">
                     <div className="confirm_padding"></div>

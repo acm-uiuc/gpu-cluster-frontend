@@ -9,7 +9,6 @@ class Grid extends Component {
 
     render() {
         var frameworks = []
-        console.log(this.props.grid)
         for (var f = 0; f < this.props.frameworks.length; f++) {
             frameworks.push(this.renderFramework(this.props.frameworks[f]));
         }

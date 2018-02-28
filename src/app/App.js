@@ -21,7 +21,9 @@ class App extends Component {
         var index = updatedFramework.indexOf(f);
         updatedFramework[index].loading = true;
         this.setState({framework:updatedFramework, disableAllButtons:true});
-        fetch(this.api + '/create_container', {
+        
+        fetch('http://localhost:5656/dummy_create_container', {
+        //fetch(this.api + '/create_container', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -36,7 +38,20 @@ class App extends Component {
     }
 
     confirm() {
-        window.location = this.state.ui_url;
+        //fetch(this.api + '/confirm', {
+        fetch('http://localhost:5656/confirm', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ui_url: this.state.ui_url})
+        }).then((resp) => resp.json()).then(data => {
+            if (data["verified"] == "confirmed") {
+                window.location = this.state.ui_url
+            }
+        });
+        
     }
     
     render() {

@@ -50,17 +50,18 @@
 }
 
 .confirm {
-    height: 75px;
-    width: 250px;
-    font-size: 0.15em;
+    height: 5vw;
+    width: 15vw;
+    font-size: 12pt;
     background-color: #262626;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     font-family: "Roboto Mono", monospace;
-    margin-left:3.5vw;
-    margin-top:10vw;
+    margin-top: 3vw;
+    max-height: 75px;
+    max-width: 250px;
 
 }
 
@@ -87,4 +88,7 @@
     color: #fff;
     font-size-adjust:auto;
     border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
