@@ -8,7 +8,7 @@ class Footer extends Component {
             <footer className="footer">
                 <div className="small-4 medium-4 large-4 columns">
                     <a id="illinois" href="https://illinois.edu" target="_blank">
-                        <img class="logo" id="illinois" src="/new_illinois.svg"></img>
+                        <img className="logo" id="illinois" src="/new_illinois.svg"></img>
                     </a>
                 </div>
                 <div className="small-4 medium-4 large-4 columns">

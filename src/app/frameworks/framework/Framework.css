@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 .Framework {
     border: 0px;
     border-bottom: 3px;
@@ -24,7 +25,7 @@
 .Framework > .label > .name {
     color: #333333;
     display:block;
-    font-size: 0.5em;
+    font-size: 0.25em;
     font-family: "Roboto Mono", monospace;
     text-align: center;
 } 
@@ -46,4 +47,48 @@
     width: 15vw;
     max-height: 200px;
     max-width: 200px;
+}
+
+.confirm {
+    height: 5vw;
+    width: 15vw;
+    font-size: 12pt;
+    background-color: #262626;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Roboto Mono", monospace;
+    margin-top: 3vw;
+    max-height: 75px;
+    max-width: 250px;
+
+}
+
+.confirm:hover {
+    background-color: #4089C9; 
+    text-decoration: underline;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.confirm_box {
+    border: 0px;
+    border-bottom: 3px;
+    border-color: #333333;
+    background-color: #fff;
+    height: 24vw;
+    width: 25vw;
+    max-height: 400px;
+    max-width: 400px;
+    font-size:4.5vw;
+    color: #fff;
+    font-size-adjust:auto;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
