@@ -9,7 +9,8 @@ class App extends Component {
         super(props);
         this.state = {frameworks: this.props.frameworkImages,
                         disableAllButtons: false,
-                        ui_url: null};
+                        ui_url: null,
+                        cid: null};
         this.loadingGif = "https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif";
         this.select = this.select.bind(this);
         this.confirm = this.confirm.bind(this);
@@ -22,7 +23,7 @@ class App extends Component {
         updatedFramework[index].loading = true;
         this.setState({framework:updatedFramework, disableAllButtons:true});
         
-        fetch('http://localhost:5656/dummy_create_container', {
+        fetch('http://localhost:5656/create_container', {
         //fetch(this.api + '/create_container', {
                 method: 'POST',
                 headers: {
@@ -33,7 +34,8 @@ class App extends Component {
             }).then((resp) => resp.json()).then(data => {
                 var loadedFramework = this.state.frameworks;
                 loadedFramework[index].loaded = true;
-                this.setState({framework:loadedFramework, ui_url: data['ui_url']})
+                console.log(data["cid"]);
+                this.setState({framework:loadedFramework, cid: data['cid'], ui_url: data['ui_url']})
             });
     }
 
@@ -45,8 +47,9 @@ class App extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ui_url: this.state.ui_url})
+            body: JSON.stringify({cid: this.state.cid})
         }).then((resp) => resp.json()).then(data => {
+            console.log(data);
             if (data["verified"] == "confirmed") {
                 window.location = this.state.ui_url
             }
@@ -55,7 +58,6 @@ class App extends Component {
     }
     
     render() {
-        console.log(this.state.ui_url);
         return (
             <div className="GPU-CLUSTER-FRONTEND">
                 <Nav/> 
